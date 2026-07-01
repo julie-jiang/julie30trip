@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julie's 30th 🌴 Sayulita 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sand: #f5e6d3;
+      --sand-light: #faf3eb;
+      --terracotta: #c1654f;
+      --terracotta-dark: #a34e3a;
+      --ocean: #2a7c8a;
+      --jungle: #4a7c59;
+      --text: #2d2a26;
+      --text-light: #6b6560;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Hero Image ── */
+    .hero-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 2rem 0;
+      background: var(--sand);
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* ── Hero Text ── */
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--sand);
+    }
+    .hero-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero-profile {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
+    }
+    .hero-emoji-ring {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.3rem;
+    }
+    .hero-emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+    .hero-date {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 700;
+      margin-top: 1.5rem;
+      background: var(--terracotta);
+      color: white;
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+    }
+    /* ── Sections ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+    section + section {
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .section-emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .section-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .section-text strong {
+      color: var(--terracotta-dark);
+    }
+
+    /* ── Activities Grid ── */
+    .activities-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (min-width: 600px) {
+      .activities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .activity-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      transition: transform 0.2s;
+    }
+    .activity-card:hover {
+      transform: translateY(-2px);
+    }
+    .activity-emoji {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+    .activity-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .activity-info p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* ── Included / Pay For ── */
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 600px) {
+      .split-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .split-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .split-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .split-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .split-card li {
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .split-card.included {
+      border: 2px solid var(--jungle);
+    }
+    .split-card.included h3 {
+      color: var(--jungle);
+    }
+    .split-card.pay-for {
+      border: 2px solid var(--terracotta);
+    }
+    .split-card.pay-for h3 {
+      color: var(--terracotta);
+    }
+
+    /* ── The Stay ── */
+    .stay-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .stay-feature {
+      display: flex;
+      gap: 0.5rem;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .stay-feature strong {
+      font-family: inherit;
+      font-weight: 600;
+      color: inherit;
+    }
+
+    /* ── Flight Table ── */
+    .flight-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .flight-table th {
+      background: var(--terracotta);
+      color: white;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .flight-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .flight-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .transport-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .transport-table th {
+      background: var(--ocean);
+      color: white;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .transport-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .transport-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tip-box {
+      background: white;
+      border-left: 4px solid var(--terracotta);
+      border-radius: 0 12px 12px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .warning-box {
+      background: #fce4ec;
+      border-left: 4px solid #c62828;
+      border-radius: 0 12px 12px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* ── Action Items ── */
+    .action-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .action-list li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 1rem;
+    }
+    .action-list li:last-child {
+      border-bottom: none;
+    }
+    .action-num {
+      width: 2rem;
+      height: 2rem;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ── RSVP CTA ── */
+    .rsvp-section {
+      text-align: center;
+      padding: 4rem 0;
+    }
+    .rsvp-btn {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .rsvp-btn:hover {
+      background: var(--terracotta-dark);
+      transform: scale(1.03);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+    .footer .heart {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Sayulita Painting ── -->
+  <div class="hero-image">
+    <img src="images/sayulita.jpg" alt="Sayulita, Mexico">
+  </div>
+
+  <!-- ── Hero Text ── -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-emoji-ring">🌴🍹🎂🍻🥂</div>
+      <img src="images/julie.jpg" alt="Julie" class="hero-profile">
+      <div class="hero-emoji-ring">🥳🍷🌴🍹🎉</div>
+      <h1 class="hero-title">Julie's Turning 30!</h1>
+      <p class="hero-subtitle">Your home girl wants to have a BLAST with <strong>YOU</strong></p>
+      <p class="hero-subtitle">She summons you to a 5-night bender in coastal Mexico 🇲🇽</p>
+      <div class="hero-date">5 nights around the weekend of Jan 23, 2027</div>
+      <p class="hero-subtitle" style="margin-top: 1rem; font-size: 0.95rem;">(actual birthday: January 12)</p>
+    </div>
+  </div>
+
+  <!-- ── Destination ── -->
+  <section>
+    <div class="container">
+      <div class="section-emoji">📍</div>
+      <h2 class="section-title">The Destination: Sayulita, Mexico</h2>
+      <p class="section-text">
+        Sayulita is a tiny, charming boho surf town on Mexico's Pacific coast. Ian and I went last year and it's the perfect blend of everything — great weather, very walkable town, lots of fun activities. The entire town is <strong>4 blocks by 6 blocks</strong> — you can walk everywhere, great for late night bar hopping.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Activities ── -->
+  <section>
+    <div class="container">
+      <div class="section-emoji">🏄</div>
+      <h2 class="section-title">Things We Can Do</h2>
+      <div class="activities-grid">
+        <div class="activity-card">
+          <div class="activity-emoji">🏄</div>
+          <div class="activity-info">
+            <h3>Surfing</h3>
+            <p>One of the best beginner surf spots in Mexico. Lessons are cheap, break is sandy and mellow. Jan–Mar is ideal season.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🥾</div>
+          <div class="activity-info">
+            <h3>Hiking</h3>
+            <p>Easy jungle trails from town.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🍹</div>
+          <div class="activity-info">
+            <h3>Bar Hopping & Nightlife</h3>
+            <p>Bars, live music, dancing. This town is LIT at night.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🌅</div>
+          <div class="activity-info">
+            <h3>Sunset Watching</h3>
+            <p>Beautiful sunsets!</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🐋</div>
+          <div class="activity-info">
+            <h3>Whale Watching</h3>
+            <p>January is peak season! Hire a panga boat right from the beach.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🚜</div>
+          <div class="activity-info">
+            <h3>ATV Jungle Tours</h3>
+            <p>Rent ATVs and tear through the jungle trails.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🐴</div>
+          <div class="activity-info">
+            <h3>Horseback Riding</h3>
+            <p>Ride through the jungle and along the beach.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🧘</div>
+          <div class="activity-info">
+            <h3>Yoga & Pilates</h3>
+            <p>Multiple studios in town for when you need to recover from the night before.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🛶</div>
+          <div class="activity-info">
+            <h3>Kayaking</h3>
+            <p>Ocean kayak rentals right on the beach.</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-emoji">🛍️</div>
+          <div class="activity-info">
+            <h3>Exploring the Town</h3>
+            <p>Local arts and crafts, cute boutiques.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Stay ── -->
+  <section>
+    <div class="container">
+      <div class="section-emoji">🏡</div>
+      <h2 class="section-title">The Stay</h2>
+      <p class="section-text">
+        I want to book a <strong>big villa that can house 15–20 people</strong> — steps from the beach and the main square. Currently eyeing a <strong>10-bedroom property with a pool, rooftop terrace, ocean views, BBQ, and kitchen.</strong>
+      </p>
+      <div class="stay-features">
+        <div class="stay-feature">🛏️ I will try to put most couples in their own room, but some may have to share. Let me know if that's a dealbreaker.</div>
+        <div class="stay-feature">👨‍🍳 We can home cook most meals so we eat together — we have some AMAZING cooks among us.</div>
+        <div class="stay-feature">🍻 A mandatory part of any Julie party: there will be a lot of BOOZE 🍷🥂</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What's Included / What You Pay For ── -->
+  <section>
+    <div class="container">
+      <div class="split-grid">
+        <div class="split-card included">
+          <h3>🎁 What's Included</h3>
+          <ul>
+            <li>⭐ Premium 5 days of companionship from your girl Julie</li>
+            <li>🏠 <strong>Free lodging</strong> — I'm booking a sick villa and covering the cost. Just bring yourself.</li>
+          </ul>
+        </div>
+        <div class="split-card pay-for">
+          <h3>💸 What You Pay For</h3>
+          <ul>
+            <li>✈️ Your flights (see transportation below)</li>
+            <li>🍽️ Food & liquor costs for your portion</li>
+            <li>🏄 Activity costs</li>
+            <li>🚕 Transportation during the trip (minimal — everything is walkable)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Getting There ── -->
+  <section>
+    <div class="container">
+      <div class="section-emoji">✈️</div>
+      <h2 class="section-title">Getting There</h2>
+      <p class="section-text">
+        <strong>Fly into Puerto Vallarta (PVR).</strong> It's the closest airport — only <strong>40 minutes</strong> from Sayulita.
+      </p>
+
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 2rem 0 0.5rem;">Estimated Round-Trip Flights (January)</h3>
+      <table class="flight-table">
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>Cost</th>
+            <th>Flight Time</th>
+            <th>Direct Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>LAX</strong></td>
+            <td>$200–500</td>
+            <td>~3 hrs</td>
+            <td>Alaska, American, Delta, United</td>
+          </tr>
+          <tr>
+            <td><strong>SFO</strong></td>
+            <td>$250–550</td>
+            <td>~3.5 hrs</td>
+            <td>Alaska, American, United</td>
+          </tr>
+          <tr>
+            <td><strong>JFK/EWR</strong></td>
+            <td>$350–700</td>
+            <td>~5.5–6 hrs</td>
+            <td>American, United — limited nonstops</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        💡 <strong>Book early!</strong> January is peak season for PVR. Set a Google Flights alert now.
+      </div>
+
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 2rem 0 0.5rem;">Airport → Sayulita (40 min)</h3>
+      <table class="transport-table">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Time</th>
+            <th>Cost</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🚕 <strong>Taxi/Uber</strong></td>
+            <td>~40 min</td>
+            <td>$130–160 total</td>
+            <td>Split with other arrivals</td>
+          </tr>
+          <tr>
+            <td>🚌 <strong>Public bus</strong></td>
+            <td>~30 min</td>
+            <td>$3–4</td>
+            <td>Departs every 20 min from airport</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="section-text">
+        If enough of us are on the same or similar flights, <strong>I'll look into booking a group shuttle</strong> so we can start the party on the ride there 🎉
+      </p>
+
+      <div class="warning-box">
+        🚗 <strong>Do NOT rent a car.</strong> Sayulita is tiny and completely walkable. The streets are narrow dirt roads full of pedestrians and golf carts.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What I Need From You ── -->
+  <section>
+    <div class="container">
+      <div class="section-emoji">✅</div>
+      <h2 class="section-title">What I Need From You</h2>
+      <ol class="action-list">
+        <li>
+          <div class="action-num">1</div>
+          <div><strong>RSVP</strong> — I need a headcount to lock in the right villa</div>
+        </li>
+        <li>
+          <div class="action-num">2</div>
+          <div><strong>Block your calendar</strong> — The weekend of Jan 23. Plan to take a few days off work.</div>
+        </li>
+        <li>
+          <div class="action-num">3</div>
+          <div><strong>Book your flights</strong> — Fly into PVR. The earlier you book, the cheaper it'll be.</div>
+        </li>
+        <li>
+          <div class="action-num">4</div>
+          <div><strong>Get ready to PARTY</strong> 🎊</div>
+        </li>
+        <li>
+          <div class="action-num">🎁</div>
+          <div><strong>The only birthday present I want is your presence</strong> (and maybe a shot of mezcal)</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── RSVP CTA ── -->
+  <section class="rsvp-section">
+    <div class="container">
+      <div class="section-emoji">🌴</div>
+      <h2 class="section-title">Ready?</h2>
+      <p class="section-text" style="text-align: center; max-width: 500px; margin: 0 auto 2rem;">
+        Please let me know what you think by <strong>July 31st</strong> or earlier so I can book the airbnb. Even if you're not entirely sure yet, a 80% yes still helps with my planning!
+      </p>
+      <a href="rsvp.html" class="rsvp-btn">RSVP Now 🎉</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <div class="footer">
+    <p class="heart">— Julie 💛</p>
+  </div>
+
+</body>
+</html>

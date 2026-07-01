@@ -564,6 +564,7 @@
     let currentPage = 0;
     let answers = {};
     let submitted = false;
+    let justSubmittedNow = false;
     let rsvpList = []; // fetched from Google Sheet
 
     // ── LocalStorage: remember submission ──
@@ -1217,8 +1218,9 @@
 
       const people = await fetchRsvpList();
 
-      // Inject the current submission if it's not already in the list
-      if (answers.name && answers.rsvp && !isDeclined()) {
+      // Inject the current submission only if they JUST submitted this session
+      // (not on page reload — trust the sheet as source of truth)
+      if (justSubmittedNow && answers.name && answers.rsvp && !isDeclined()) {
         const displayName = isCouple()
           ? `${answers.name} & ${answers.partnerName}`
           : answers.name;
@@ -1286,6 +1288,7 @@
     function submitToGoogleForm() {
       if (submitted) return;
       submitted = true;
+      justSubmittedNow = true;
       saveSubmission();
 
       const payload = {

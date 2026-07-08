@@ -434,6 +434,16 @@
       margin-bottom: 0.75rem;
       text-align: center;
     }
+    .rsvp-count {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .rsvp-count strong {
+      color: var(--terracotta, #c1654f);
+      font-size: 1.05rem;
+    }
     .rsvp-person {
       display: flex;
       align-items: center;
@@ -752,8 +762,8 @@
         type: 'question', image: 'q4',
         number: `${qNum} of ${total}`,
         question: isCouple()
-          ? 'Are you down to go to Sayulita around the weekend of Jan 23? 🇲🇽'
-          : 'Are you down to go to Sayulita around the weekend of Jan 23? 🇲🇽',
+          ? 'Are you down to go to Sayulita Thu Jan 21 – Mon Jan 25, 2027? 🇲🇽'
+          : 'Are you down to go to Sayulita Thu Jan 21 – Mon Jan 25, 2027? 🇲🇽',
         inputType: 'options',
         options: [
           'YES LET\'S FUN 🙌',
@@ -1187,12 +1197,22 @@
     }
 
     // ── RSVP List Rendering ──
+    function countGuests(people) {
+      // A couple's displayName is "A & B" and counts as 2 guests.
+      let total = 0;
+      for (const p of people) {
+        total += (p.displayName && p.displayName.includes(' & ')) ? 2 : 1;
+      }
+      return total;
+    }
+
     function buildRsvpListHTML(people) {
       if (!people || people.length === 0) {
         return '<div class="rsvp-empty">No RSVPs yet — you\'re the first! 🎉</div>';
       }
 
-      let html = '';
+      const guestCount = countGuests(people);
+      let html = `<div class="rsvp-count">🎉 <strong>${guestCount}</strong> ${guestCount === 1 ? 'guest is' : 'guests are'} coming so far!</div>`;
       for (const p of people) {
         let badgeHTML = '';
         if (p.flakeRisk === 'high') {

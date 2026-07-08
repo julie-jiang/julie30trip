@@ -28,6 +28,24 @@
       line-height: 1.6;
     }
 
+    /* ── Countdown Widget ── */
+    .countdown {
+      margin: 0.9rem auto 0;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      color: var(--ocean);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .countdown-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: var(--terracotta-dark);
+    }
+
     /* ── Hero Image ── */
     .hero-image {
       width: 100%;
@@ -392,10 +410,11 @@
       <img src="images/julie.jpg" alt="Julie" class="hero-profile">
       <div class="hero-emoji-ring">🥳🍷🌴🍹🎉</div>
       <h1 class="hero-title">Julie's Turning 30!</h1>
-      <p class="hero-subtitle">Your home girl wants to have a BLAST with <strong>YOU</strong></p>
+      <p class="hero-subtitle" style="font-size: 0.95rem;">(actual birthday: January 12)</p>
+      <p class="hero-subtitle" style="margin-top: 1rem;">Your home girl wants to have a BLAST with <strong>YOU</strong></p>
       <p class="hero-subtitle">She summons you to a 4-night bender in coastal Mexico 🇲🇽</p>
-      <div class="hero-date">Around the weekend of Jan 23, 2027</div>
-      <p class="hero-subtitle" style="margin-top: 1rem; font-size: 0.95rem;">(actual birthday: January 12)</p>
+      <div class="hero-date">Thu Jan 21 – Mon Jan 25, 2027</div>
+      <div id="countdown"></div>
     </div>
   </div>
 
@@ -502,6 +521,7 @@
         <div class="stay-feature">🛏️ I will try to put most couples in their own room, but some may have to share. Let me know if that's a dealbreaker.</div>
         <div class="stay-feature">👨‍🍳 We can home cook most meals so we eat together — we have some AMAZING cooks among us.</div>
         <div class="stay-feature">🍻 A mandatory part of any Julie party: there will be a lot of BOOZE 🍷🥂</div>
+        <div class="stay-feature">📅 The villa is ours <strong>Thu Jan 21 – Mon Jan 25, 2027</strong> (4 nights).</div>
       </div>
     </div>
   </section>
@@ -623,7 +643,7 @@
         </li>
         <li>
           <div class="action-num">2</div>
-          <div><strong>Block your calendar</strong> — The weekend of Jan 23. Plan to take a few days off work (e.g., Fri–Mon).</div>
+          <div><strong>Block your calendar</strong> — <strong>Thu Jan 21 – Mon Jan 25, 2027</strong>. Plan to take a few days off work (e.g., Fri–Mon). Can't do the full 4 nights? Arrive late or leave early — the window is yours.</div>
         </li>
         <li>
           <div class="action-num">3</div>
@@ -657,6 +677,31 @@
   <div class="footer">
     <p class="heart">— Julie 💛</p>
   </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById('countdown');
+      if (!el) return;
+      // Trip starts Thu Jan 21, 2027 (local time)
+      var tripStart = new Date(2027, 0, 21);
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var msPerDay = 1000 * 60 * 60 * 24;
+      var days = Math.round((tripStart - today) / msPerDay);
+
+      if (days > 1) {
+        el.innerHTML = '⏳ <span class="countdown-num">' + days + '</span> days until Sayulita';
+      } else if (days === 1) {
+        el.innerHTML = '⏳ <span class="countdown-num">1</span> day until Sayulita';
+      } else if (days === 0) {
+        el.innerHTML = '🥳 Sayulita is today!';
+      } else if (days > -5) {
+        el.innerHTML = '🍹 See you in Sayulita!';
+      } else {
+        el.innerHTML = '💛 Thanks for celebrating!';
+      }
+    })();
+  </script>
 
 </body>
 </html>
